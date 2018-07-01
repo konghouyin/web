@@ -1,0 +1,360 @@
+﻿*{
+    margin:0;
+    padding:0;
+    font-family:Arial;
+    list-style:none;
+}
+
+
+div.wrap{
+    height:30px;
+    width:auto;
+    background-color:#ffffff;
+    border-bottom:1px solid rgb(235,235,235); 
+}
+/*这是导航栏大块*/
+
+
+span#tem,
+a.weather>span{
+    margin-left:10px;
+    font-size:12px;
+    line-height:30px;
+    width:auto;
+    height:20px;
+    float:left;
+}
+
+
+
+a.weather span.weather2 span.imge{
+    display:inline-block;
+    width:20px;
+    height:25px;
+    background-image:url(./img/more_cloud.png);
+    background-repeat:no-repeat;
+    background-size:18px 18px;
+    background-position:0px 5px;
+    float:left;
+} 
+
+a.weather span.weather3{
+    color:#5898da;
+    font-weight:bold;
+}
+
+div.divide{
+    font-size:12px;
+    line-height:30px;
+}
+
+
+
+div.shell ul.shell li{
+    float:left;
+    margin-right:15px;
+}
+
+div.shell ul.shell li a{
+    line-height:30px;
+    font-size:12px;
+    color:#555;
+}
+
+a.weather,
+div.divide,
+div.shell{
+    height:30px;
+    margin-left:5px;
+    float:left;
+}
+
+a.weather{
+    color:#000;
+}
+
+/*导航栏左边*/
+
+
+
+
+div.wrap div.right>ul>li{
+    float:left;
+    margin-left:20px;
+    font-weight:bold;
+}
+div.wrap div.right li a{
+    font-size:12px;
+    line-height:30px;
+    color:#555;
+}
+
+div.wrap div.right li.a7,
+div.wrap div.right li.a8,
+div.wrap div.right li.a9{
+    font-weight:normal;
+}
+
+div.wrap div.right li.a9{
+    padding:0px 20px;
+    background-color:#317ef3;
+    
+}
+
+div.wrap div.right li.a9 a{
+    color:#fff;
+    font-size:13px;
+    text-decoration:none;
+}
+
+div.right{
+    float:right;
+}
+
+
+/*右侧基础功能结束*/
+
+div.wrap div.right ul li.a9{
+    position:relative;
+    display:inline-block;
+    /*添加定位，使元素不被覆盖*/
+}
+
+div.wrap div.right ul li.a9 div.morething{
+     position:absolute;
+     left:0;
+     display:none;
+     background-color:rgb(249,249,249);
+     z-index:2;
+     min-width:92px;
+     min-height:709px;
+}
+
+div.wrap div.right ul li.a9 div.morething ul li.pic{ 
+    display:block;
+    background-image:url(./img/morething.png);
+    height:40px;
+    background-repeat:no-repeat;
+    margin-top:35px;
+    width:36px;
+    margin:35px auto 0 auto;
+}
+
+div.wrap div.right ul li.a9 div.morething ul li a{ 
+    text-align:center;
+    font-size:12px;
+    color: #777;
+    text-decoration: none;
+    display: block;
+    padding-top:33px;
+}
+/*下拉菜单的属性*/
+
+div.wrap div.right ul li.a9 div.morething ul li.special {
+    margin-top:0px;
+}
+div.wrap div.right ul li.a9 div.morething ul li.p2{
+    width:41px;
+    background-position:-72px 0;
+}
+
+div.wrap div.right ul li.a9 div.morething ul li.p3{
+    width:33px;
+    background-position:-113px 0;
+}
+
+div.wrap div.right ul li.a9 div.morething ul li.p4{
+    width:36px;
+    background-position:-36px 0;
+}
+
+div.wrap div.right ul li.a9 div.morething ul li.p5{
+    width:36px;
+    background-position:-146px 0;
+}
+
+div.wrap div.right ul li.a9 div.morething ul li.p6{
+    width:42px;
+    background-position:-180px 0;
+}
+
+div.wrap div.right ul li.a9 div.morething ul li.p7{
+    background-origin:content-box;
+    width:36px; 
+    background-position:-220px 0;
+}
+
+div.wrap div.right ul li.a9 div.morething ul li.p7 a{
+    white-space:nowrap;
+    display:inline-block;
+    margin-left:-3px;
+}
+/*下拉菜单的图片*/
+
+
+div.wrap div.right ul li.a9:hover{
+    background-color:rgb(249,249,249);
+}
+
+div.wrap div.right ul li.a9:hover a{
+    color:#000;
+}
+
+div.wrap div.right ul li.a9:hover div.morething{
+    display:block;
+}
+
+
+div.wrap div.right ul li.a9 div.morething ul li a:hover{
+    text-decoration:underline;
+}
+/*导航栏结束*/
+
+div.main div.logo{
+    text-align:center;
+    margin-top:75px;
+}
+
+div.main div.logo img{
+    width:280px;
+}
+
+
+/*logo图标*/
+div.search-inline{
+     text-align:center;
+     margin-top:20px;
+}
+
+
+div.search-inline div.handin{
+    position:relative;
+}
+
+div.search-inline div.search input{
+    color:rgba(50,50,50,0.5);
+    width:558px;
+    height:32px;
+    padding:2px;
+    padding-left:5px;
+    padding-right:35px;
+}
+
+div.handin input{
+    width:100px;
+    height:39px;
+    color:#fff;
+    display:inline-block;
+    background-color:#38f;
+    border:0 solid red;
+    font-size:16px;
+    vertical-align:-1px;
+
+}
+
+div.search-inline div{
+    display:inline-block;
+}
+
+div.search-inline span.camera{
+    display:inline-block;
+    margin-top:12px;
+    width:20px;
+    height:20px;
+    background-image:url(./img/cam.png);
+    background-repeat:no-repeat;
+    background-position:0 0px;
+    position:absolute;
+    right:110px;
+    background-size:20px;
+}
+
+div.search-inline div.handin span:hover {
+     background-position:0 -22.05px;
+}
+
+/*搜索部分完成*/
+
+div.bottom{
+    position:absolute;
+    bottom:15px;
+    left:50%;
+    margin-left:-236px;
+}
+
+div.bottom div{
+    text-align:center;
+}
+/*元素居中*/
+
+div.bottom ul{
+     display:inline-block;
+}
+/*触发bfc使ul紧包元素*/
+
+div.bottom li{
+    float:left;
+    margin-left:15px;
+    font-size:12px;
+    color:#999;
+}
+
+div.bottom a{
+    color:#999;
+}
+
+
+div.bottom div.top ul li.pic6{
+    background-image:url(./img/in0.png);
+    background-repeat:no-repeat;
+    background-position:0 0;
+    background-size:50px;
+    width:29px;
+    height:29px;
+    margin:-7px 0 0 -3px;
+}
+
+div.bottom div.down ul li.pic11{
+    background-image:url(./img/in0.png);
+    background-repeat:no-repeat;
+    background-position:-26px 0;
+    background-size:55px;
+    width:22px;
+    height:29px;
+    margin:-9px -7px 0 0;
+}
+
+
+/*
+    div.bottom{
+   position:absolute;
+   bottom:15px;
+   font-size:12px;
+   color:#777;
+   border:2px solid red;
+}
+
+div.bottom li{
+    float:left;
+    margin-right:10px;
+    position:absolute;
+}
+
+div.bottom a{
+    color:#777;
+}
+
+div.bottom div.top{
+    position:absolute;
+    /*left:50%;*/
+    /*border:2px solid red;
+}
+
+div.bottom  ul{
+    display:block;
+}
+
+div.bottom div.top ul li.pic6{
+    
+}
+*/
