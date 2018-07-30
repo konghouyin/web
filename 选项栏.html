@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="keywords" content="两栏布局" />
+        <meta name="description" content="这是一个两栏布局！" />
+        <title>两栏布局</title>
+
+        <style>
+            .all{
+                position:fixed;
+                top:250px;
+                left:500px;
+                text-align:center;
+            }
+             @font-face{
+                font-family:hand;
+                src:url(SegoePrint.ttf)
+            }
+           .botton{
+               display:inline-block;
+               border:1px solid #999;
+               text-align:center;
+               width:100px;
+               height:35px;
+               box-shadow:3px 4px 5px rgba(102, 102, 102, 0.4);
+               font-family:hand;
+               font-size:16px;
+               line-height:35px;
+               margin:0 5px;
+           }
+           .thing{
+               margin-top:20px;
+           }
+           .content{
+               display:none;
+               border:2px solid #6fd4ee;
+               margin-top:10px;
+               margin-left:5px;
+               width:333px;
+               height:35px;
+               background-color:#ddd;
+               text-align:center;
+               font-size:16px;
+               line-height:35px;
+           }
+           .botton:hover{
+               cursor:pointer;
+           }
+           .botton:active{
+               position:relative;
+               box-shadow:0 0 #fff;
+               transform: translateY(2px);
+               transform: translateX(2px);
+           }
+          div .botton-action{
+               font-weight:600;
+               background-color:#6fd4ee;
+           }
+
+        </style>
+     </head>
+
+    <body>  
+        <div class="all">
+            <h2>选项单</h2>
+            <div class="wrap">
+                <div class="botton">HTML</div>
+                <div class="botton">CSS</div>
+                <div class="botton">Javascript</div>
+            </div>
+            <div class="thing">
+                <div class="content">超文本标记语言</div>
+                <div class="content">层叠样式表</div>
+                <div class="content">脚本语言</div>
+            </div>
+        </div>
+         <script>
+            var btn = document.getElementsByClassName("botton");
+            var div = document.getElementsByClassName("content");
+            for (var i = 0; i < btn.length; i++) {
+                (function (n) {
+                    btn[n].onclick = function () {
+                        for (var j = 0; j < btn.length; j++) {
+                            btn[j].className = "botton";
+                            div[j].style.display = "none";
+                        }
+                        this.className = "botton botton-action";
+                        div[n].style.display = "block";
+                    };
+                })(i);
+
+            }
+       </script>
+    </body>
+</html>
