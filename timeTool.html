@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+
+<html lang="zh">
+    <head>
+        <link  type="text/css" rel="stylesheet" href="timeTool.css"/>
+        <meta charset="utf-8"/>
+        <title>时间工具</title>
+        <meta name="keywords" content="time,tool" />
+        <meta name="description" content="This is a time tool to help you!" />
+        
+    </head>
+    <body>
+        <div class="tool">
+            <div class="wrap">
+                <h4>时间工具</h4>
+                <div class="choose">
+                    <div class="tool1 active">闹钟</div>
+                    <div class="tool2">定时器</div>
+                    <div class="tool3">秒表</div>
+                </div>
+            </div>
+            <div class="show clock">
+                <h4>闹钟</h4>
+            </div>
+            <div class="show stop" style="display:none">
+                <h4>定时器</h4>
+                <div class="box min"></div>
+                <div class="box sec"></div>
+                <button>启动</button>
+                <button>暂停</button>
+                <button>重置</button>
+            </div>
+            <div class="show go" style="display:none">
+                <h4>秒表</h4>
+                <div class="goshow">
+                    <div class="go-show-h" style="color:#bbb">00:</div>
+                    <div class="go-show-m" style="color:#bbb">00:</div>
+                    <div class="go-show-s" >00.</div>
+                    <div class="go-show-ms" >00</div>
+                </div>
+                <div class="ctrl">
+                    <div class="back"></div>
+                    <div class="start"></div>
+                    <div class="time"></div>
+                </div>
+            </div>
+        </div>
+        <script src="timeTool.js"></script>
+    </body>
+</html>

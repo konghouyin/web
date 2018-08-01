@@ -1,0 +1,163 @@
+*{
+    margin:0;
+    padding:0;
+    list-style:none;
+    -webkit-user-select:none;
+   -moz-user-select:none;
+   -ms-user-select:none;
+   user-select:none;
+}
+.wrap{
+    height:100px;
+    background-color:rgb(227,232,239);
+    padding-top:10px;
+    padding-left:10px;
+}
+.wrap>h4{
+    font-weight:normal;
+    font-size:16px;
+    padding-bottom:11px;
+    padding-left:7px;
+}
+.choose>div{
+    font-size:14px;
+    box-sizing:border-box;
+    padding-top:40px;
+    text-align:center;
+    display:inline-block;
+    height:68px;
+    width:85px;
+    float:left;
+    background-size:24px;
+    background-repeat:no-repeat;
+    background-position:31px 8px;
+}
+
+.choose>.tool1{
+    background-image:url(./img/clock.png);
+}
+.choose>.tool2{
+    background-image:url(./img/stop.png);
+}
+.choose>.tool3{
+    background-image:url(./img/go.png);
+}
+
+.choose>div:hover{
+    background-color:rgba(200, 200, 200,0.5);
+    cursor:pointer;
+}
+
+.choose>.active{
+    border-bottom:4px solid rgb(41,111,204);
+}
+/*基础选项菜单*/
+
+.show{
+    position:fixed;
+    top:37%;
+    left:50%;
+}
+.show>h4{
+    font-size:40px;
+    padding-bottom:10px;
+}
+
+.go{
+    margin-left:-200px;
+    width:400px;
+    text-align:center;
+}
+.goshow>div{
+    display:inline;
+    margin:0 auto;
+    font-size:60px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.goshow>.go-show-ms{
+    font-size:30px;
+}
+
+.go .ctrl{
+    margin:15px auto;
+    overflow:hidden;
+    width:245px;
+    vertical-align:middle;
+}
+.go .time,
+.go .back{
+    display:inline-block;
+    box-sizing:border-box;
+    padding:10px;
+    width:50px;
+    height:50px;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-origin:content-box;
+    margin:0 15px;
+    vertical-align:middle;
+}
+.go .time{
+    background-size:30px;
+    background-image:url(./img/time2.png);
+}
+.go .back{
+    background-image:url(./img/back2.png);
+    background-size:35px;
+}
+
+.go .start{
+    box-sizing:border-box;
+    display:inline-block;
+    width:70px;
+    height:70px;
+    border:3px solid #bbb;
+    border-radius:50%;
+    background-size:29px;
+    background-repeat:no-repeat;
+    background-image:url(./img/start.png);
+    background-position:22px 16px;
+    vertical-align:middle;
+}
+
+.go .ctrl>div:hover{
+    background-color:rgba(220,220,220,0.7);
+}
+/*秒表主体界面*/
+.go>.test{
+    padding-left:30px;
+    position:absolute;
+    top:-100px;
+    right:-185px;
+    width:160px;
+    height:420px;
+    text-align:left;
+    overflow:auto;
+}
+.go > .test > h4 {
+    color: #555;
+    font-weight: bold;
+    font-size: 18px;
+}
+.go>.test>h5{
+    color:#777;
+    font-weight:500;
+    font-size:18px;
+}
+.go>.test>div{
+    padding:10px 0;
+    position:relative;
+}
+.go>.test>div>.first{
+    color:#777;
+    position:absolute;
+    left:-25px;
+    top:13px;
+}
+.go>.test>div>.second{
+    font-size:22px;
+}
+.go>.test>div>.third{
+    font-size:18px;
+}
+}
