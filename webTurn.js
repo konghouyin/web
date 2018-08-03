@@ -220,13 +220,39 @@ input.addEventListener("mouseleave", function () {
 });
 
 input.children[0].children[3].addEventListener("click", function () {
-    console.log("1");
     speedle = parseInt(input.children[0].children[1].value);//切换速度
-    picNumber = parseInt(input.children[0].children[0].value);//起始页
     autoTime = parseInt(input.children[0].children[2].value) * 1000;//自动播放时间
-});
+    clearInterval(go);
+    go = setInterval(turnNum, autoTime);
 
+});
 //调速事件
 
-
+var menuTicket = 1;
+var ctrl= document.getElementsByClassName("ctrl")[0];
+var menu = document.getElementsByClassName("button")[0];
+menu.onclick = function () {
+    if (menuTicket == 1) {
+        first.style.opacity = "1";
+        before.style.opacity = "1";
+        start.style.opacity = "1";
+        next.style.opacity = "1";
+        music.style.opacity = "1";
+        this.style.opacity = "0.6";
+        ctrl.style.top = "70%";
+        this.innerHTML = "CLOSE";
+        menuTicket = 0;
+    } else if (menuTicket == 0) {
+        first.style.opacity = "0";
+        before.style.opacity = "0";
+        start.style.opacity = "0";
+        next.style.opacity = "0";
+        music.style.opacity = "0";
+        this.style.opacity = "1";
+        ctrl.style.top = "60%";
+        this.innerHTML = "MENU";
+        menuTicket = 1;
+    }    
+}
+//按钮渐隐效果
 

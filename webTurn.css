@@ -102,8 +102,10 @@ body{
     width:350px;
     height:350px;
     position:fixed;
-    top:70%;
+    top:60%;
     left:10%;
+    transition:top ease-in-out 1s;
+
 }
 .ctrl .thing{
     background-origin:content-box;
@@ -131,6 +133,7 @@ body{
     font-size:20px;
     line-height:100px;
     z-index:3;
+    transition: opacity ease-in-out 1s;
 }
 .ctrl .botto{
     background-color:transparent;
@@ -252,7 +255,8 @@ body{
     border-radius:25px;
    background-color:#fff;
    border:2px solid #e7af86;
-   transition:top 1s;
+   transition:top    ease-in-out 1s;
+
 }
 .input .thing{
     color:#000;
@@ -271,7 +275,7 @@ body{
     box-sizing:border-box;
 }
 audio{
-    display:block;
+    display:none;
 }
 
 .pull{
@@ -301,3 +305,14 @@ body div.out{
     transform:translateX(1px);
     transform:translateY(1px);
 }
+
+/*下拉调速界面*/
+
+.turn-out{
+    opacity:0;
+    transition: opacity ease-in-out 1s;
+
+}
+
+
+
