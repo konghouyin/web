@@ -64,9 +64,11 @@ for (var i = 0; i < picture - 2; i++) {
     (function (n) {
         a[n].parentElement.onclick = function () {
             clearInterval(go);
+            if (go != -1) {
+                go = null;
+            }
             picNumber = n+1;
             move(picNumber);
-            go = setInterval(turnNum, autoTime);
         }
     })(i);
 }
@@ -88,7 +90,8 @@ function active(from, to) {
     }
     timer = setInterval(function () {
         pic.style.left = parseInt(pic.style.left) - step + "px";
-        if ((Math.abs(parseInt(pic.style.left) - to) )< Math.abs(step)) {
+        if ((Math.abs(parseInt(pic.style.left) - to)) < Math.abs(step)) {
+            pic.style.left = to + "px";
             if (go === null) {
                 go = setInterval(turnNum, autoTime);
             }
