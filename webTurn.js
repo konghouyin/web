@@ -195,17 +195,18 @@ first.onclick = function () {
 
 var song = document.getElementsByTagName("audio")[0];
 var musicTicket = 1;
+
+
 music.onclick = function () {
     if (musicTicket == 1) {
         musicTicket = 0;
         song.pause();
-        music.children[0].children[0].style.backgroundImage="url(./img/ic_action_volume_up.png)"
+        music.children[0].children[0].style.backgroundImage ="url(./img/ic_action_volume_mute.png)"
     } else {
         song.play();
-        music.children[0].children[0].style.backgroundImage = "url(./img/ic_action_volume_mute.png)"
+        music.children[0].children[0].style.backgroundImage = "url(./img/ic_action_volume_up.png)"
         musicTicket = 1;
     }
-
 }
 //音乐事件
 
@@ -216,10 +217,17 @@ pull.addEventListener("mouseenter", function () {
     input.className = "input out";
 });
 
+input.addEventListener("mouseenter", function () {
+    try {
+        clearTimeout(pullOut);
+    } catch{ }
+});
 input.addEventListener("mouseleave", function () {
-    setTimeout(function () {
-        input.className = "input";
-    }, 2000)
+    if (window.getComputedStyle(input, null).top == "5px") {
+        pullOut = setTimeout(function () {
+            input.className = "input";
+        }, 1000);
+    }
 });
 
 input.children[0].children[3].addEventListener("click", function () {
