@@ -234,8 +234,9 @@ input.children[0].children[3].addEventListener("click", function () {
     speedle = parseInt(input.children[0].children[1].value);//切换速度
     autoTime = parseInt(input.children[0].children[2].value) * 1000;//自动播放时间
     clearInterval(go);
+    startTicket = 1;
+    start.children[0].children[0].setAttribute("style", "background-image:url(./img/ic_action_playback_pause.png);background-position:4px 12px");
     go = setInterval(turnNum, autoTime);
-
 });
 //调速事件
 
