@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+
+<html lang="zh">
+    <head>
+
+        <meta charset="utf-8"/>
+        <title>扇形动画</title>
+        <meta name="keywords" content="bababa" />
+        <meta name="description" content="bababa" />
+        <style>
+            *{
+                margin:0;
+                padding:0;
+            }
+            div{
+                width:100%;
+                height:795px;
+            }
+            
+        </style>
+    </head>
+    <body onmousewheel="return false;">
+        <div class="part1" style="background-color:red"></div>
+        <div class="part2" style="background-color:green"></div>
+        <div class="part3" style="background-color:blue"></div>
+        <div class="part4" style="background-color:orange"></div>
+        <div class="part5" style="background-color:purple"></div>
+        <script>
+            var flag = 1;
+            var number = 0;
+            function move(part) {
+                console.log(part);
+                var to = part * 795;
+                var from = window.pageYOffset;
+                var speed = (to - from) / 200;
+                console.log(from, to);
+                var timer = setInterval(function () {
+                    window.scrollBy(0, speed);
+                    if (Math.abs(window.pageYOffset - to) < Math.abs(speed)) {
+                        window.scrollTo(0, to);
+                        flag = 1;
+                        clearInterval(timer);
+                    }
+                }, 1)
+            }
+            window.onmousewheel = function (e) {
+                if (flag == 1) {
+                    if (e.wheelDelta > 0 && number > 0 ) {
+                        number--;
+                        move(number);
+                        flag = 0;
+                    } else if(e.wheelDelta < 0 && number < 4 ){
+                        number++;
+                        move(number);
+                        flag = 0;
+                    }
+                } else {}
+            }
+        
+        </script>   
+
+    </body>
+</html>
