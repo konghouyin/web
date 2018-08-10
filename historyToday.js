@@ -7,6 +7,7 @@ var message;
 
 
 function getMessage(month) {
+    var num = month;
     month = monthText(month);
     var http = new XMLHttpRequest();
     var xmlUrl = "https://baike.baidu.com/cms/home/eventsOnHistory/" + month + ".json";
@@ -14,7 +15,7 @@ function getMessage(month) {
     http.onreadystatechange = function () {
         if (http.readyState == 4 && http.status == 200) {
             message = JSON.parse(http.response);
-            calendar(month);
+            calendar(num);
         }
     };
     http.send();
@@ -56,6 +57,7 @@ function calendar(month) {
         var calendarDom = document.getElementsByClassName("day")[0];
         calendarDom.remove();
     } catch{ }
+
     calendarDom = document.createElement("ul");
     timeNow.setMonth(month - 1);
     timeNow.setDate(1);
@@ -63,16 +65,16 @@ function calendar(month) {
         var kid = document.createElement("li");
         kid.appendChild(document.createElement("a"));
         kid.appendChild(document.createElement("img"));
+        kid.appendChild(document.createElement("p"));
         kid.appendChild(document.createElement("div"));
-        kid.appendChild(document.createElement("div"));
-        kid.children[2].innerHTML = (i+1) + "";
-        for (prop in message[monthText(month)][monthText(month) + monthText(i+1)]) {
-            console.log(message[monthText(month)][monthText(month) + monthText(i+1)][prop]);
-            if (message[monthText(month)][monthText(month) + monthText(i+1)][prop].cover == true) {
-                kid.children[3].innerHTML = message[monthText(month)][monthText(month) + monthText(i+1)][prop].title;
+        kid.children[2].innerHTML = (i + 1) + "";
+        for (prop in message[monthText(month)][monthText(month) + monthText(i + 1)]) {
+            if (message[monthText(month)][monthText(month) + monthText(i + 1)][prop].cover == true) {
+                kid.children[1].setAttribute("src", message[monthText(month)][monthText(month) + monthText(i + 1)][prop].pic_calendar);
+                kid.children[3].innerHTML = aOut(message[monthText(month)][monthText(month) + monthText(i + 1)][prop].title);
             }
         }
-       
+
         calendarDom.appendChild(kid);
     }
     var add = (timeNow.getDay() == 0) ? (6) : (timeNow.getDay() - 1);
@@ -80,7 +82,8 @@ function calendar(month) {
     for (i = 0; i < add; i++) {
         kid = document.createElement("li");
         kid.appendChild(document.createElement("a"));
-        kid.children[0].innerHTML = inputdate + "";
+        kid.appendChild(document.createElement("p"));
+        kid.children[1].innerHTML = inputdate + "";
         calendarDom.insertBefore(kid, calendarDom.children[0]);
         inputdate--;
     }
@@ -89,7 +92,8 @@ function calendar(month) {
         for (i = calendarDom.children.length; i < 35; i++) {
             var kid = document.createElement("li");
             kid.appendChild(document.createElement("a"));
-            kid.children[0].innerHTML = inputdate + "";
+            kid.appendChild(document.createElement("p"));
+            kid.children[1].innerHTML = inputdate + "";
             calendarDom.appendChild(kid);
             inputdate++;
         }
@@ -98,7 +102,8 @@ function calendar(month) {
         for (i = calendarDom.children.length; i < 42; i++) {
             var kid = document.createElement("li");
             kid.appendChild(document.createElement("a"));
-            kid.children[0].innerHTML = inputdate + "";
+            kid.appendChild(document.createElement("p"));
+            kid.children[1].innerHTML = inputdate + "";
             calendarDom.appendChild(kid);
             inputdate++;
         }
@@ -108,3 +113,16 @@ function calendar(month) {
     father.appendChild(calendarDom);
 }
 //日历的dom树的构建
+
+function aOut(letter) {
+    var reg = /[<>]/g;
+    var array = letter.split(reg);
+    for (var i = array.length; i > 0; i--) {
+        if (i % 2 == 1) {
+            array.splice(i, 1);
+        }
+    }
+    return array.join("");
+}
+//去除a标签
+getMessage(8);

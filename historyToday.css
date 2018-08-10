@@ -130,6 +130,7 @@
     color:#aaa;
 }
 .main .day li{
+    position:relative;
     width:80px;
     height:75px;
     float:left;
@@ -137,6 +138,62 @@
     margin-right:2px;
     margin-left:2px;
     cursor:pointer;
-    background-color:#00c3b6;
-    /*background-color:#00c3b6;*/
+    background-color:#fff;
+}
+.main .day li a{
+    position:absolute;
+    width:80px;
+    height:75px;
+    display:inline-block;
+    background-color:rgba(28, 28, 28, 0.35);
+    z-index:4;
+}
+.main .day li img{
+    width:80px;
+    height:75px;
+}
+.main .day li p{
+    text-align:center;
+    position:absolute;
+    width:30px;
+    top:36%;
+    left:32%;
+    font-size:24px;
+    color:#fff;
+    z-index:6;
+}
+.main .day li div{
+    top:0;
+    overflow:hidden;
+    width:62px;
+    height:47px;
+    box-sizing:border-box;
+    margin:15px 9px;
+    font-size:13px;
+    color:#fff;
+    position:absolute;
+    z-index:7;
+    text-overflow:clip;
+    line-height:15px;
+}
+/*日历部分*/
+
+.main .right .wrap .type{
+    color:#fff;
+    font-size:22px;
+    font-weight:300;
+    text-align:center;
+    padding-top:12px;
+    height:50px;
+    box-sizing:border-box;
+    background-color:#2f84b8;
+}
+.main .right .wrap .day-letter{
+    font-size:40px;
+    padding-top:50px;
+    text-align:center;
+    color:#fff;
+    height:150px;
+    background-color:rgb(69,143,216);
+    box-sizing:border-box;
 }
