@@ -1,0 +1,142 @@
+﻿.header{
+    position:fixed;
+    top:0;
+    height:50px;
+    width:100%;
+    background-color:#323232;
+    z-index:3;
+}
+.thing{
+    width:1100px;
+    margin:0 auto;
+}
+.header .thing>a{
+    margin-right:15px;
+    display:inline-block;
+    height:50px;
+    width:230px;
+    box-sizing:border-box;
+    background-image:url(./img/bg.30c200.png);
+    background-position:-230px 12px;
+}
+.header ul{
+    list-style:none;
+    display:inline-block;
+}
+.header li{
+    float:left;
+    box-sizing:border-box;
+    margin:0 10px;
+    display:inline-block;
+    height:50px;
+}
+.header ul a{
+    display:inline-block;
+    box-sizing:border-box;
+    height:50px;
+    padding:18px 5px;
+    text-decoration:none;
+    color:#fff;
+    font-size:14px;
+    transition:color 0.5s;
+
+}
+/*导航栏样式*/
+.header .active{
+    color:#00c3b6;
+}
+.header a:hover{
+    color:#00c3b6;
+}
+/*导航栏*/
+.main .pic{
+    margin-top:50px;
+    height:250px;
+    background-image:url(./img/titou.jpg);
+    background-repeat:no-repeat;
+    background-size:100%;
+    position:relative;
+}
+.main .pic .top{
+    position:absolute;
+    top:35%;
+    left:25%;
+    font-size:28px;
+    color:#fff;
+}
+.main .pic .down{
+    position:absolute;
+    top:52%;
+    left:15%;
+    font-size:15px;
+    color:#fff;
+}
+/*长图*/
+.main .wrapper{
+    width:1000px;
+    margin:15px auto;
+}
+.main .left{
+    box-sizing:border-box;
+    height:570px;
+    width:680px;
+    display:inline-block;
+    border:1px solid #ccc;
+    box-shadow:3px 3px 5px #aaa;
+    vertical-align:bottom;
+    padding:40px 45px 45px 45px;
+}
+.main .right{
+    box-sizing:border-box;
+    height:570px;
+    width:300px;
+    display:inline-block;
+    border:1px solid #ccc;
+    box-shadow:3px 3px 5px #aaa;
+    margin-left:15px;
+    vertical-align:bottom;
+}
+.main .left .tittle{
+    margin: 0 auto;
+    width:215px;
+}
+.main .left .button{
+    display:inline-block;
+    box-sizing:border-box;
+    height:33px;
+    width:33px;
+    border-radius:50%;
+    border:1px solid #aaa;
+    font-size:18px;
+    vertical-align:middle;
+    padding-top:4px;
+    padding-left:8px;
+    color:#323232;
+}
+.main .left .month{
+    font-size:20px;
+    margin:0 18px;
+    vertical-align:text-bottom;
+}
+/*左栏抬头*/
+.main .weeks{
+    margin-top:5px;
+}
+.main .weeks li{
+    width:34px;
+    float:left;
+    margin:15px 25px;
+    font-size:14px;
+    color:#aaa;
+}
+.main .day li{
+    width:80px;
+    height:75px;
+    float:left;
+    margin-top:5px;
+    margin-right:2px;
+    margin-left:2px;
+    cursor:pointer;
+    background-color:#00c3b6;
+    /*background-color:#00c3b6;*/
+}
