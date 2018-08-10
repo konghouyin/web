@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>angry</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        ul{
+            list-style:none;
+        }
+        li{
+            box-sizing:border-box;
+            text-align:center;
+            padding:15px;
+            position:relative;
+            float:left;
+            width:100px;
+            height:100px;
+            transition:all  1s;
+            background-color:#1a7eb0;
+            color:#fff;
+            line-height:70px;
+        }
+        li:hover{
+            width:200px;
+            background-color:#5896e2;
+        }
+        li div{
+            position:absolute;
+            top:100px;
+            left:0;
+            background-color:#63accf;
+            width:200px;
+            transition:all 1s;
+            transition-delay:0.5s;
+            transform-origin:100% 0;
+        }
+        .show{
+            opacity:0;
+            transform-origin:100% 0;
+            transform:rotateX(-90deg);
+            transition:all 1s;
+            transition-delay:0.5s;
+        }
+        .active{
+            opacity:1;
+            transform:rotateX(0deg);
+            transition:all 1s;
+            transition-delay:0.5s;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>
+            <span>标题1</span>
+            <div class="show">里面可以放ul>li</div>
+        </li>
+        <li>
+            <span>标题2</span>
+            <div class="show">里面可以放ul>li</div>
+        </li>
+        <li>
+            <span>标题3</span>
+            <div class="show">里面可以放ul>li</div>
+        </li>
+        <li>
+            <span>标题4</span>
+            <div class="show">里面可以放ul>li</div>
+        </li>
+    </ul>
+    <script>
+        var li = document.getElementsByTagName("li");
+        var div = document.getElementsByTagName("div");
+        for (var i = 0; i < li.length; i++) {
+            (function (i) {
+                li[i].onmouseenter = function () {
+                    div[i].className="active";
+                }
+            })(i);
+
+            (function (i) {
+                li[i].onmouseleave = function () {
+                    div[i].style.display="none";
+                    div[i].className = "show";
+                    setTimeout(function () {
+                        div[i].style.display="block";
+                    },200)
+                }
+            })(i);
+        }
+
+    </script>
+</body>
+</html>
