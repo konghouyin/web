@@ -1,6 +1,6 @@
 // JavaScript source code
 var timeNow = new Date();
-var month = timeNow.getMonth() + 1;
+var month = 8//timeNow.getMonth() + 1;
 var day = timeNow.getDate();
 var message;
 
@@ -53,16 +53,19 @@ function backday(month) {
 //月份日期查询
 
 function calendar(month) {
-    try {
-        var calendarDom = document.getElementsByClassName("day")[0];
-        calendarDom.remove();
-    } catch{ }
-
+ 
+    var calendarDom = document.getElementsByClassName("day")[0];
+    if (calendarDom == undefined) {
+        var calendarDom = document.getElementsByClassName("day-shot")[0];
+    }
+    calendarDom.remove();
+   
     calendarDom = document.createElement("ul");
     timeNow.setMonth(month - 1);
     timeNow.setDate(1);
     for (var i = 0; i < backday(month); i++) {
         var kid = document.createElement("li");
+
         kid.appendChild(document.createElement("a"));
         kid.appendChild(document.createElement("img"));
         kid.appendChild(document.createElement("p"));
@@ -74,7 +77,6 @@ function calendar(month) {
                 kid.children[3].innerHTML = aOut(message[monthText(month)][monthText(month) + monthText(i + 1)][prop].title);
             }
         }
-
         calendarDom.appendChild(kid);
     }
     var add = (timeNow.getDay() == 0) ? (6) : (timeNow.getDay() - 1);
@@ -98,6 +100,7 @@ function calendar(month) {
             inputdate++;
         }
         calendarDom.setAttribute("class", "day");
+        var flag = 0;
     } else {
         for (i = calendarDom.children.length; i < 42; i++) {
             var kid = document.createElement("li");
@@ -107,12 +110,72 @@ function calendar(month) {
             calendarDom.appendChild(kid);
             inputdate++;
         }
-        calendarDom.setAttribute("class", "day shot");
+        calendarDom.setAttribute("class", "day-shot");
+        var flag = 1;
     }
     var father = document.getElementsByClassName("left")[0];
     father.appendChild(calendarDom);
+    dayChoose(day);
+    things((flag == 1) ? 42 : 35, add, backday(month));
+
 }
 //日历的dom树的构建
+
+function things(all, before, dayofall) {
+    console.log(all, before, dayofall, month);//////////////////////////、、、、、、、、、
+    var calendarDom = document.getElementsByClassName("day")[0];
+    if (calendarDom == undefined) {
+        var calendarDom = document.getElementsByClassName("day-shot")[0];
+    }
+    
+    var beforepro = before;
+    var allpro = 1;
+    for (var i = 0; i < all; i++) {
+        if (before > 0 && month > 1) {
+            (function (j, before) {
+                calendarDom.children[j].addEventListener("click", function () {
+                    month = month - 1;
+                    day = backday(month) - before + 1;
+                    getMessage(month);
+                })
+            })(i, before);
+            before--;
+        } else if (dayofall > 0) {
+            (function (j, before) {
+                calendarDom.children[j].addEventListener("click", function () {
+                    day = j - before + 1;
+                    dayChoose(day);
+                })
+            })(i, beforepro);
+            (function (j) {
+                calendarDom.children[j].addEventListener("mouseenter", function () {
+                    calendarDom.children[j].children[0].classList.add("active-a");
+                    calendarDom.children[j].children[2].classList.add("active-p");
+                    calendarDom.children[j].children[3].classList.add("active-div");
+                })
+            })(i);
+            (function (j) {
+                calendarDom.children[j].addEventListener("mouseleave", function () {
+                    calendarDom.children[j].children[0].classList.remove("active-a");
+                    calendarDom.children[j].children[2].classList.remove("active-p");
+                    calendarDom.children[j].children[3].classList.remove("active-div");
+                })
+            })(i);
+            dayofall--;
+        } else {
+            (function (j,allpro) {
+                calendarDom.children[j].addEventListener("click", function () {
+                    month = month + 1;
+                    day = allpro;
+                    getMessage(month);
+                })
+            })(i, allpro);
+            allpro++;
+        }
+    }
+
+}
+//添加事件
 
 function aOut(letter) {
     var reg = /[<>]/g;
@@ -125,4 +188,24 @@ function aOut(letter) {
     return array.join("");
 }
 //去除a标签
-getMessage(8);
+
+function dayChoose(e) {
+    var calendarDom = document.getElementsByClassName("day")[0];
+    if (calendarDom == undefined) {
+        var calendarDom = document.getElementsByClassName("day-shot")[0];
+    }
+   var clear = calendarDom.getElementsByTagName("div");
+    for (var i = 0; i < clear.length; i++) {
+        clear[i].parentElement.children[0].classList.remove("point");
+        clear[i].parentElement.children[2].style.display = "block";
+        clear[i].parentElement.children[3].style.display = "block";
+    }
+    clear[e-1].parentElement.children[0].classList.add("point");
+    clear[e-1].parentElement.children[2].style.display = "none";
+    clear[e - 1].parentElement.children[3].style.display = "none";
+    //当日信息添加
+}
+//日期选择
+
+
+getMessage(month);
