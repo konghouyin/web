@@ -1,13 +1,12 @@
 // JavaScript source code
 var timeNow = new Date();
-var month = 8//timeNow.getMonth() + 1;
+var month = timeNow.getMonth() + 1;
 var day = timeNow.getDate();
 var message;
-
-
+calendarchange()
+getMessage(month);
 
 function getMessage(month) {
-    var num = month;
     month = monthText(month);
     var http = new XMLHttpRequest();
     var xmlUrl = "https://baike.baidu.com/cms/home/eventsOnHistory/" + month + ".json";
@@ -15,13 +14,14 @@ function getMessage(month) {
     http.onreadystatechange = function () {
         if (http.readyState == 4 && http.status == 200) {
             message = JSON.parse(http.response);
-            calendar(num);
+            calendar();
+            calendarchange();
         }
     };
     http.send();
 }
-//»ñÈ¡Êı¾İ
-//´«ÈëÔÂ·İ×Ö·û´®£¬¸üĞÂmessage¡£
+//è·å–æ•°æ®
+//ä¼ å…¥æœˆä»½å­—ç¬¦ä¸²ï¼Œæ›´æ–°messageã€‚
 
 function monthText(month) {
     if (month < 10) {
@@ -31,8 +31,8 @@ function monthText(month) {
     }
     return month;
 }
-//ÔÂ·İ×Ö·û´®×ª»»
-//ÊäÈëÊı×Ö£¬·µ»Ø×Ö·û´®
+//æœˆä»½å­—ç¬¦ä¸²è½¬æ¢
+//è¾“å…¥æ•°å­—ï¼Œè¿”å›å­—ç¬¦ä¸²
 
 function backday(month) {
     switch (month) {
@@ -50,9 +50,9 @@ function backday(month) {
         case 2: return 28;
     }
 }
-//ÔÂ·İÈÕÆÚ²éÑ¯
+//æœˆä»½æ—¥æœŸæŸ¥è¯¢
 
-function calendar(month) {
+function calendar() {
  
     var calendarDom = document.getElementsByClassName("day")[0];
     if (calendarDom == undefined) {
@@ -73,7 +73,7 @@ function calendar(month) {
         kid.children[2].innerHTML = (i + 1) + "";
         for (prop in message[monthText(month)][monthText(month) + monthText(i + 1)]) {
             if (message[monthText(month)][monthText(month) + monthText(i + 1)][prop].cover == true) {
-                kid.children[1].setAttribute("src", message[monthText(month)][monthText(month) + monthText(i + 1)][prop].pic_calendar);
+                kid.children[1].setAttribute("src", picLock(message[monthText(month)][monthText(month) + monthText(i + 1)][prop].pic_calendar));
                 kid.children[3].innerHTML = aOut(message[monthText(month)][monthText(month) + monthText(i + 1)][prop].title);
             }
         }
@@ -119,10 +119,10 @@ function calendar(month) {
     things((flag == 1) ? 42 : 35, add, backday(month));
 
 }
-//ÈÕÀúµÄdomÊ÷µÄ¹¹½¨
+//æ—¥å†çš„domæ ‘çš„æ„å»º
 
 function things(all, before, dayofall) {
-    console.log(all, before, dayofall, month);//////////////////////////¡¢¡¢¡¢¡¢¡¢¡¢¡¢¡¢¡¢
+    console.log(all, before, dayofall, month);//////////////////////////ã€ã€ã€ã€ã€ã€ã€ã€ã€
     var calendarDom = document.getElementsByClassName("day")[0];
     if (calendarDom == undefined) {
         var calendarDom = document.getElementsByClassName("day-shot")[0];
@@ -163,19 +163,21 @@ function things(all, before, dayofall) {
             })(i);
             dayofall--;
         } else {
-            (function (j,allpro) {
-                calendarDom.children[j].addEventListener("click", function () {
-                    month = month + 1;
-                    day = allpro;
-                    getMessage(month);
-                })
-            })(i, allpro);
-            allpro++;
+            if (month != 12) {
+                (function (j, allpro) {
+                    calendarDom.children[j].addEventListener("click", function () {
+                        month = month + 1;
+                        day = allpro;
+                        getMessage(month);
+                    })
+                })(i, allpro);
+                allpro++;
+            }
         }
     }
 
 }
-//Ìí¼ÓÊÂ¼ş
+//æ·»åŠ äº‹ä»¶
 
 function aOut(letter) {
     var reg = /[<>]/g;
@@ -187,7 +189,7 @@ function aOut(letter) {
     }
     return array.join("");
 }
-//È¥³ıa±êÇ©
+//å»é™¤aæ ‡ç­¾
 
 function dayChoose(e) {
     var calendarDom = document.getElementsByClassName("day")[0];
@@ -203,9 +205,54 @@ function dayChoose(e) {
     clear[e-1].parentElement.children[0].classList.add("point");
     clear[e-1].parentElement.children[2].style.display = "none";
     clear[e - 1].parentElement.children[3].style.display = "none";
-    //µ±ÈÕĞÅÏ¢Ìí¼Ó
+    dayAdd();
+    //å½“æ—¥ä¿¡æ¯æ·»åŠ 
 }
-//ÈÕÆÚÑ¡Ôñ
+//æ—¥æœŸé€‰æ‹©
 
+function dayAdd() {
+    var time = document.getElementById("time");
+    time.innerHTML = month + "æœˆ" + day + "æ—¥";
+    var right = document.getElementsByClassName("thing")[1];
+    for (prop in message[monthText(month)][monthText(month) + monthText(day)]) {
+        if (message[monthText(month)][monthText(month) + monthText(day)][prop].cover == true) {
+            right.children[0].innerHTML = message[monthText(month)][monthText(month) + monthText(day)][prop].year+"ï¼Œ"+message[monthText(month)][monthText(month) + monthText(day)][prop].title;
+            right.children[1].setAttribute("href", message[monthText(month)][monthText(month) + monthText(day)][prop].link);
+            right.children[1].children[0].setAttribute("src", picLock(message[monthText(month)][monthText(month) + monthText(day)][prop].pic_share));
+            right.children[2].innerHTML = message[monthText(month)][monthText(month) + monthText(day)][prop].desc;
+        }
+    }
+    //æ·»åŠ å½“æ—¥è¯¦ç»†äº‹ä»¶
+}
 
-getMessage(month);
+function calendarchange() {
+    var change = document.getElementsByClassName("month")[0];
+    change.innerHTML = timeNow.getFullYear() + "å¹´" + month + "æœˆ";
+}
+//æ˜¾ç¤ºæœˆä»½
+
+function picLock(list) {
+    var reg = /e.hiphotos/
+    if (reg.test(list)) {
+        var array = list.split("e.hiphotos");
+        list = array.join("imgsa");
+        array = list.split("http");
+        list = array.join("https");
+    }
+    reg = /d.hiphotos/g;
+    if (reg.test(list)) {
+        var array = list.split("d.hiphotos");
+        list = array.join("imgsa");
+        array = list.split("http");
+        list = array.join("https");
+    }
+    reg = /hiphotos/g;
+    if (reg.test(list)) {
+        var array = list.split("hiphotos");
+        list = array.join("imgsa");
+        array = list.split("http");
+        list = array.join("https");
+    }
+    return list;
+}
+//éª—ç™¾åº¦å›¾ç‰‡å‡½æ•°
