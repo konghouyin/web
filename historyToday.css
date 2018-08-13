@@ -1,4 +1,8 @@
-﻿.header{
+﻿
+html{
+    background-color:#eee;
+}
+.header{
     position:fixed;
     top:0;
     height:50px;
@@ -86,6 +90,7 @@
     box-shadow:3px 3px 5px #aaa;
     vertical-align:bottom;
     padding:40px 45px 45px 45px;
+    background-color:#fff;
 }
 .main .right{
     box-sizing:border-box;
@@ -96,12 +101,19 @@
     box-shadow:3px 3px 5px #aaa;
     margin-left:15px;
     vertical-align:bottom;
+    background-color:#fff;
 }
 .main .left .tittle{
     margin: 0 auto;
     width:225px;
+    -webkit-user-select:none;
+   -moz-user-select:none;
+   -ms-user-select:none;
+   user-select:none;
 }
-.main .left .button{
+.main .left .button1,
+.main .left .button2{
+    font-size:18px;
     display:inline-block;
     box-sizing:border-box;
     height:33px;
@@ -109,19 +121,34 @@
     border-radius:50%;
     border:1px solid #aaa;
     font-size:18px;
-    vertical-align:middle;
-    padding-top:4px;
-    padding-left:8px;
+    padding-top:6px;
     color:#323232;
+    cursor:pointer;
+}
+.main .left .button1{
+    padding-left:8px;
+}
+.main .left .button2{
+    padding-left:10px;
 }
 .main .left .month{
     font-size:20px;
     margin:0 18px;
     vertical-align:text-bottom;
 }
+.main .left .button1:hover,
+.main .left .button2:hover{
+    background-color:#ddd;
+    border-color:rgb(69,143,216);
+    color:rgb(69,143,216);
+}
 /*左栏抬头*/
 .main .weeks{
     margin-top:5px;
+    -webkit-user-select:none;
+   -moz-user-select:none;
+   -ms-user-select:none;
+   user-select:none;
 }
 .main .weeks li{
     width:34px;
@@ -141,7 +168,7 @@
     margin-right:2px;
     margin-left:2px;
     cursor:pointer;
-    background-color:#ddd;
+    background-color:#eee;
     box-sizing:border-box;
     overflow:hidden;
     transition:all  0.5s;
@@ -152,7 +179,7 @@
     width:80px;
     height:75px;
     display:inline-block;
-    background-color:rgba(28, 28, 28, 0.5);
+    background-color:rgba(58, 58, 58, 0.5);
     z-index:4;
     transition:all 0.8s;
     box-sizing:border-box;
@@ -175,6 +202,10 @@
     z-index:6;
     opacity:1;
     transition:all 0.8s;
+        -webkit-user-select:none;
+   -moz-user-select:none;
+   -ms-user-select:none;
+   user-select:none;
 }
 .main .day-shot div,
 .main .day li div{
@@ -189,7 +220,7 @@
     position:absolute;
     z-index:7;
     text-overflow:clip;
-    line-height:15px;
+    line-height:16px;
     opacity:0;
     transition:all 0.8s;
 }
@@ -273,16 +304,17 @@
 }
 /*右侧重要信息*/
 
-.botton{
+body>.botton{
     height:166px;
     width:100%;
     background-color:#333;
-    padding:30px 95px;
+    padding:30px 250px;
     box-sizing:border-box;
+    min-width:1200px;
 }
 .botton .left{
     float:left;
-    width:600px;
+    width:400px;
 }
 .botton .left a{
     display:inline-block;
@@ -331,14 +363,11 @@
     height:18px;
     padding:0;
     cursor:pointer;
-    z-index:6;
-}
-.botton .right .small:hover .big{
-    opacity:1;
+    z-index:5;
 }
 .botton .right .big{
     position:absolute;
-    left:50px;
+    left:110px;
     top:-80px;
     background-image:url(./img/wxqr.jpg);
     background-repeat:no-repeat;
@@ -347,8 +376,76 @@
     width:100px;
     height:100px;
     padding:0;
-    z-index:7;
+    z-index:5;
     opacity:0;
     transition:all 0.2s;
 }
+.botton .right .big-action{
+    opacity:1 !important;
+}
 /*botton*/
+.list{
+    width:1000px;
+    margin:15px auto;
+    box-shadow:3px 3px 5px #aaa;
+    background-color:#fff;
+    border:1px solid #ccc;
+    padding:50px 120px;
+    box-sizing:border-box;
+}
+.list .tittle{
+    margin-bottom:20px;
+}
+.list .tittle .small-litter{
+    font-size:22px;
+    color:#666;
+}
+
+.list .tittle .big-litter{
+    font-size:22px;
+    font-weight:700;
+    color:#333;
+}
+.list .event{
+    position:relative;
+}
+.list .event a{
+    color:#338de6;
+    text-decoration:none;
+}
+
+.list .event .left{
+    position:absolute;
+    top:35px;
+    right:675px;
+    font-size:20px;
+}
+.list .event .right{
+    position:relative;
+    margin-left:120px;
+    border-left:1px solid #e1e3e6;
+}
+.list .event .right .top{
+    height:40px;
+}
+
+.list .event .right .tittle{
+    color:#333;
+    font-size:17px;
+    position:absolute;
+    padding-left:10px;
+    left:60px;
+    top:35px;
+    width:500px;
+    background-color:#fff;
+   
+}
+.list .event .right .botton{
+    color:#999;
+    font-size:15px;
+    border-top:1px solid #e1e3e6;
+    width:auto;
+    background-color:#fff;
+    padding:30px 0 0 35px;
+    padding-bottom:10px;
+}

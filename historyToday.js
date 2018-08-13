@@ -31,7 +31,6 @@ function monthText(month) {
     }
     return month;
 }
-//月份字符串转换
 //输入数字，返回字符串
 
 function backday(month) {
@@ -177,7 +176,7 @@ function things(all, before, dayofall) {
     }
 
 }
-//添加事件
+//日历添加事件
 
 function aOut(letter) {
     var reg = /[<>]/g;
@@ -206,6 +205,8 @@ function dayChoose(e) {
     clear[e-1].parentElement.children[2].style.display = "none";
     clear[e - 1].parentElement.children[3].style.display = "none";
     dayAdd();
+    dayList()
+    dayPlus();
     //当日信息添加
 }
 //日期选择
@@ -222,14 +223,14 @@ function dayAdd() {
             right.children[2].innerHTML = message[monthText(month)][monthText(month) + monthText(day)][prop].desc;
         }
     }
-    //添加当日详细事件
 }
+//添加当日重要事件
 
 function calendarchange() {
     var change = document.getElementsByClassName("month")[0];
     change.innerHTML = timeNow.getFullYear() + "年" + month + "月";
 }
-//显示月份
+//左侧显示月份
 
 function picLock(list) {
     var reg = /e.hiphotos/
@@ -256,3 +257,115 @@ function picLock(list) {
     return list;
 }
 //骗百度图片函数
+
+(function () {
+    var wechar = document.getElementsByClassName("wechar")[0];
+    wechar.children[0].onmouseenter = function () {
+        wechar.children[1].classList.add("big-action");
+    }
+    wechar.children[0].onmouseleave = function () {
+        wechar.children[1].classList.remove("big-action");
+    }
+})();
+//底部二维码
+
+(function() {
+    var button = document.getElementsByClassName("tittle")[0];
+    button.children[0].onclick = function () {
+        if (month > 1) {
+            month--;
+            getMessage(month);
+        }
+    }
+    button.children[2].onclick = function () {
+        if (month < 12) {
+            month++;
+            getMessage(month);
+        }
+    }
+}) ();
+//月份转换事件
+
+function dayList() {
+    var list = document.getElementsByClassName("list")[0];
+    list.remove();
+
+    list = document.createElement("div");
+    list.setAttribute("class", "list");
+    var newNode = document.createElement("div");
+    newNode.setAttribute("class", "thing");
+    list.appendChild(newNode);
+    var pNode = newNode;
+    newNode = document.createElement("div");
+    newNode.setAttribute("class", "tittle");
+    pNode.appendChild(newNode);
+    pNode = newNode;
+    newNode = document.createElement("span");
+    newNode.innerHTML = "历史上"
+    newNode.setAttribute("class", "small-litter");
+    pNode.appendChild(newNode);
+    newNode = document.createElement("span");
+    newNode.innerHTML = month + "月" + day + "日";
+    newNode.setAttribute("class", "big-litter");
+    pNode.appendChild(newNode);
+    newNode = document.createElement("span");
+    newNode.innerHTML = "都发生了什么？"
+    newNode.setAttribute("class", "small-litter");
+    pNode.appendChild(newNode);
+    document.body.insertBefore(list, document.body.children[2]);
+};
+//详细信息列表主题
+
+function yearText(year) {
+    var reg = /-/g
+    if (reg.test(year)) {
+        var array = year.split(reg);
+        year = array.join("公元前")
+    }
+    return year + "年";
+}
+//年份日期转换
+
+function aAdd(text) {
+    var add = text;
+    add = add + "..."
+    var array = add.split(/href="/);
+    add = array.join('href="https://baike.baidu.com');
+    var reg = /[<>]/g
+    array = text.split(reg);
+    if (array.length == 3 || array.length == 7 || array.length== 11 || array.length == 15) {
+        add = add + "</a>";
+    }
+    return add;
+}
+//文字内a标签处理
+
+function dayPlus() {
+    var parentNode = document.getElementsByClassName("thing")[2];
+    for (var i = 0; i < message[monthText(month)][monthText(month) + monthText(day)].length;i++) {
+        var newNode = document.createElement("div");
+        newNode.setAttribute("class", "event");
+        var lNode = document.createElement("div");
+        lNode.setAttribute("class", "left");
+        lNode.innerHTML = yearText(message[monthText(month)][monthText(month) + monthText(day)][i].year);
+        var rNode = document.createElement("div");
+        rNode.setAttribute("class", "right");
+        newNode.appendChild(lNode);
+        newNode.appendChild(rNode);
+
+        var topNode = document.createElement("div");
+        topNode.setAttribute("class", "top");
+        var tittleNode = document.createElement("div");
+        tittleNode.setAttribute("class", "tittle");
+        tittleNode.innerHTML = message[monthText(month)][monthText(month) + monthText(day)][i].title;
+        var bottonNode = document.createElement("div");
+        bottonNode.setAttribute("class", "botton");
+        bottonNode.innerHTML = aAdd(message[monthText(month)][monthText(month) + monthText(day)][i].desc);
+        bottonNode.innerHTML = bottonNode.innerHTML + '<a target="_blank" href="' + message[monthText(month)][monthText(month) + monthText(day)][i].link + '">更多>></a>';
+        rNode.appendChild(topNode);
+        rNode.appendChild(tittleNode);
+        rNode.appendChild(bottonNode);
+        parentNode.appendChild(newNode);
+    }
+}
+
