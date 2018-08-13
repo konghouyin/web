@@ -214,6 +214,11 @@ function dayChoose(e) {
 function dayAdd() {
     var time = document.getElementById("time");
     time.innerHTML = month + "月" + day + "日";
+    var festival = document.getElementById("festival");
+    festival.innerHTML = "";
+    if (message[monthText(month)][monthText(month) + monthText(day)][0].festival != "") {
+        festival.innerHTML = message[monthText(month)][monthText(month) + monthText(day)][0].festival;
+    }
     var right = document.getElementsByClassName("thing")[1];
     for (prop in message[monthText(month)][monthText(month) + monthText(day)]) {
         if (message[monthText(month)][monthText(month) + monthText(day)][prop].cover == true) {
@@ -348,9 +353,19 @@ function dayPlus() {
         var lNode = document.createElement("div");
         lNode.setAttribute("class", "left");
         lNode.innerHTML = yearText(message[monthText(month)][monthText(month) + monthText(day)][i].year);
+        var picNode = document.createElement("div");
+        picNode.setAttribute("class", "iconfont");
+        if (message[monthText(month)][monthText(month) + monthText(day)][i].type == "birth") {
+            picNode.innerHTML = "&#xe836;"
+        } else if (message[monthText(month)][monthText(month) + monthText(day)][i].type == "death") {
+            picNode.innerHTML = "&#xe9c8;"
+        } else {
+            picNode.innerHTML = "&#xe695;"
+        }
         var rNode = document.createElement("div");
         rNode.setAttribute("class", "right");
         newNode.appendChild(lNode);
+        newNode.appendChild(picNode);
         newNode.appendChild(rNode);
 
         var topNode = document.createElement("div");
@@ -368,4 +383,33 @@ function dayPlus() {
         parentNode.appendChild(newNode);
     }
 }
+//大事情的列表
 
+(function () {
+    window.onscroll = function () {
+        if (window.pageYOffset < 258) {
+            try {
+                var uptop = document.getElementById("uptop");
+                uptop.remove();
+            } catch{ }
+        } else if (window.pageYOffset > 258 ){
+            if (!document.getElementById("uptop")) {
+                var uptop = document.createElement("div");
+                uptop.setAttribute("id", "uptop");
+                uptop.setAttribute("class", "iconfont");
+                uptop.innerHTML = "&#xe9c9;";
+                var list = document.getElementsByClassName("list")[0];
+                list.appendChild(uptop);
+                uptop.onclick = function () {
+                    window.scrollTo(0, 258);
+                };
+            }
+
+            if (window.pageYOffset > document.body.scrollHeight - window.innerHeight - 120) {
+                console.log("a");
+                var uptop = document.getElementById("uptop");
+                uptop.style.bottom = window.pageYOffset - 2180+"px";
+            }
+        }
+    }
+})();
