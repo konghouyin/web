@@ -45,13 +45,15 @@ body{
     left:58px;
 }
 .left{
+    box-sizing:border-box;
     margin-top:40px;
     margin-left:170px;
     width:400px;
     height:695px;
     background-image:url(./img/jt.png);
+    background-size:40px;
     background-repeat:no-repeat;
-    background-position:40px 6px;
+    background-position:40px -20px;
     overflow:scroll;
 }
 .left li {
