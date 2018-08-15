@@ -1,0 +1,228 @@
+﻿*{
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+::-webkit-scrollbar {
+            width: 0px;
+        }
+@font-face {
+    font-family: lishu;
+    src: url(./ls.ttf);
+}
+@font-face {
+    font-family: xingkai;
+    src: url(./xk.ttf);
+}
+@font-face {
+    font-family: kaishu;
+    src: url(./ks.ttf);
+}
+body{
+    background-image:url(./img/timg.jpg);
+    background-repeat:no-repeat;
+    background-size:100%;
+    z-index:-2;
+}
+.page1>.name{
+    width:120px;
+    height:300px;
+    background-image:url(./img/name.png);
+    background-repeat:no-repeat;
+    background-size:114px;
+    position:absolute;
+    top:80px;
+    left:60px;
+}
+.page1>.logo{
+    width:125px;
+    height:125px;
+    background-image:url(./img/logo.png);
+    background-repeat:no-repeat;
+    background-size:125px;
+    position:absolute;
+    top:560px;
+    left:58px;
+}
+.left{
+    margin-top:40px;
+    margin-left:170px;
+    width:400px;
+    height:700px;
+    background-image:url(./img/jt.png);
+    background-repeat:no-repeat;
+    background-position:40px 6px;
+    overflow:hidden;
+}
+.left li {
+    position:relative;
+    width:300px;
+}
+
+.left .top .point,
+.left .top .point::after{
+    background-color:rgb(160,160,160) !important;
+    transition: all 0.5s;
+}
+.left .top .tittle{
+    background-color:#eee;
+    position:relative;
+    margin:30px 0;
+    padding:20px;
+    border-radius:5px;
+    border:1px solid #a5a5a5;
+    box-shadow: 3px 3px 5px rgba(35, 35, 35, 0.35);
+}
+.left .top .tittle::after{
+    background-color:#eee;
+    content:"";
+    display:inline-block;
+    width:20px;
+    height:20px;
+    border-left:1px solid #a5a5a5;
+    border-bottom:1px solid #a5a5a5;
+    position:absolute;
+    transform:rotate(45deg);
+    left:-11px;
+    top:40px;
+}
+.left .top .tittle .white{ 
+    color:#fff !important;
+}
+
+.left .top .tittle div{
+    text-align:center;
+    padding:5px 0;
+}
+.left .top .tittle .big{
+    color:#656565;
+    font-family:xingkai;
+    font-size:20px;
+}
+.left .top .tittle .small{
+    color:#757575;
+    font-family:ks;
+    font-size:16px;
+}
+.left .top .tittle .season{
+    position:absolute;
+    top:75px;
+    left:10px;
+    font-family:lishu;
+    color:#858585;
+}
+
+.left .top{
+    position:relative;
+    width:203px;
+    margin-left:100px;
+    transition:all 0.5s;
+}
+.left .top .pic{
+    width:57px;
+    height:57px;
+    background-color:#eee;
+    background-repeat:no-repeat;
+    background-position:1px 1px;
+    border-radius:50%;
+    position:absolute;
+    left:170px;
+    top:22px;
+    background-size:55px;
+    transition:all 1s;
+}
+.left .top .show{
+
+    display:inline-block;
+    width:57px;
+    height:57px;
+    background-color:#fff;
+    border-radius:50%;
+    position:absolute;
+    left:170px;
+    top:22px;
+    box-shadow: 3px 3px 5px rgba(35, 35, 35, 0.35);
+    z-index:-1;
+}
+.left .bottom{
+    position:absolute;
+    left:46px;
+    top:39px;
+    width:25px;
+    height:25px;
+    border-radius:50%;
+    background-color:#FFAE12;
+    z-index:7;
+    box-sizing:border-box;
+    border:6px solid #fff;
+    transition:all 0.4s;
+}
+.active{
+    transform:rotate(360deg);
+}
+
+
+.right{
+    border:1px solid rgba(0,0,0,0);
+    position:absolute;
+    left:600px;
+    top:100px;
+    width:800px;
+    height:570px;
+    border-radius:10px;
+    background:radial-gradient( rgba(0,0,0,0.55) 35%, rgba(0,0,0,0.45) 75%, rgba(0,0,0,0.2) 110%);
+    box-shadow:10px 10px 15px rgba(0,0,0,0.3);
+    transform:scale(0);
+    transition:all  1.2s;
+}
+.right>div{
+    display:inline-block;
+    vertical-align:top;
+}
+.right .main{
+    margin:30px 20px;
+    width:565px;
+    height:500px;
+    overflow-Y:scroll;
+    overflow-x:hidden;
+}
+.right .line{
+    width:2px;
+    height:500px;
+    background-color:#fff;
+    margin-top:30px;
+}
+.right .less{
+    margin:15px;
+}
+.right .less img{
+    margin-top:70px;
+    width:150px;
+    height:150px;
+}
+.right .less .name{
+    margin:50px 0;
+    color:#fff;
+    font-size:50px;
+    text-align:center;
+}
+.right .less .time{
+    color:#fff;
+    font-size:35px;
+    text-align:center;
+}
+.right .main h4{
+    font-size:20px;
+    margin:10px 0;
+}
+.right .main>div{
+    margin-bottom:40px;
+    margin-left:20px;
+    margin-right:20px;
+    line-height:28px;
+    font-size:18px;
+    color:#fff;
+}
+.start{
+    transform:scale(1);
+}
