@@ -48,11 +48,11 @@ body{
     margin-top:40px;
     margin-left:170px;
     width:400px;
-    height:700px;
+    height:695px;
     background-image:url(./img/jt.png);
     background-repeat:no-repeat;
     background-position:40px 6px;
-    overflow:hidden;
+    overflow:scroll;
 }
 .left li {
     position:relative;

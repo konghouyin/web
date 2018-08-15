@@ -117,15 +117,12 @@ function action() {
                 ul.children[i].firstElementChild.firstElementChild.children[2].classList.add("white");
                 ul.children[i].firstElementChild.children[1].classList.add("point");
                 ul.children[i].firstElementChild.children[2].classList.add("point");
-
-                move(i);
             })
         })(i);
     }
 }
 //生成左侧事件
 
-function move
 
 function getMessage(id) {
     var right = document.getElementsByClassName("right")[0];
