@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+            list-style:none;
+        }
+       .box{
+           width:200px;
+           height:400px;
+           position:absolute;
+           top:100px;
+           right:30px;
+       }
+       li{
+           height:100px;
+           margin:20px 0;
+       }
+       li>div{
+           position:absolute;
+           width:100px;
+           height:100px;
+           color:#fff;
+           font-size:20px;
+           line-height:100px;
+           text-align:center;
+           transition:all 1s;
+           margin-left:100px;
+       }
+       .n{
+           background-color:#0094ff;
+       }
+       li:hover .m{
+           width:0px;
+           margin-left:200px;
+       }
+        li:hover .n{
+           width:200px;
+           margin-left:0;
+       }
+       .m{
+           background-color:#808080;
+       }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li>
+                <div class="n">春</div>
+                <div class="m">spring</div>
+            </li>
+            <li>
+                <div class="n">夏</div>
+                <div class="m">summer</div>
+            </li>
+            <li>
+                <div class="n">秋</div>
+                <div class="m">autumn</div>
+            </li>
+            <li>
+                <div class="n">冬</div>
+                <div class="m">winter</div>
+            </li>
+        </ul>
+
+    </div>
+</body>
+</html>
