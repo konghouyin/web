@@ -186,11 +186,30 @@ setTimeout(function () {
     context.arc(343, 205, 12.5, 0.51 * Math.PI, 1.5 * Math.PI, false);
     context.fill();
     context.stroke();
+    
 },2300)
 
+setTimeout(function () {
+    var wave = document.getElementsByClassName("wave")[0];
+    wave.firstElementChild.style.opacity = "1";
+    wave.lastElementChild.style.opacity = "1";
+},6000)
 
+setTimeout(function () {
+    var wave = document.getElementsByClassName("wave")[0];
+    wave.firstElementChild.style.opacity = "0";
+    wave.lastElementChild.style.opacity = "0";
+}, 11000)
 
+setTimeout(function () {
+    var turn = document.getElementsByClassName("turn")[0];
+    turn.style.height = window.innerHeight + "px";
+    turn.style.backgroundColor = "#000";
+}, 10900)
 
-
-
-
+setTimeout(function () {
+    var logo = document.getElementsByClassName("logo")[0];
+    var loading = document.getElementsByClassName("loading")[0];
+    logo.style.opacity = "0";
+    loading.style.opacity = "0";
+}, 15900)
