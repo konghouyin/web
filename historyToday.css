@@ -483,7 +483,8 @@ body>.botton{
     color:#a5a5a5;
     position:fixed;
     bottom:40px;
-    right:100px;
+    left:50%;
+    margin-left:560px;
     border-radius:50%;
     padding-left:8px;
     padding-top:2px;
