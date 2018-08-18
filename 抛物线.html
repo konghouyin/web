@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>抛物线</title>
+    <style>
+        .letter{
+            position:absolute;
+            top:220px;
+            font-size:40px;
+            color:#fff;
+            left:400px;
+        }
+    </style>
+</head>
+<body>
+    <div style="width:1200px;height:600px;background-color:#000"></div>
+    <div class="letter">移动应用开发实验室</div>
+    <canvas width="1200" height="600" style="z-index:2;position:absolute;top:0"></canvas>
+    <canvas width="1200" height="600" style="z-index:3;position:absolute;top:0"></canvas>
+    <script>
+        var canvas = document.getElementsByTagName("canvas")[0];
+        var paint = canvas.getContext("2d");
+        var canvas2 = document.getElementsByTagName("canvas")[1];
+        var paint2 = canvas2.getContext("2d");
+        paint2.fillStyle = "black";
+        paint2.fillRect(392, 220, 360, 50);
+        function black(num) {
+            paint2.clearRect(num + 50, 220, 3, 50);
+        };
+        
+        
+
+        var array = [];
+        var paintting = [];
+        var s = 300;
+        (function start() {
+            if (s >= 1800) {
+                return;
+            }
+            if (s <= 700) {
+                create(s);
+            }
+            s += 2;
+            suan();
+            draw();
+            black(s);
+            setTimeout(start, 15);
+         })();
+
+     
+        function create(num) {
+            for (var i = 10; i < 60; i+=15) {
+                var point = {
+                    x: num,
+                    y: 200,
+                    vy: -i,
+                    vx:-20,
+                    t: 0,
+                    random: Math.random() * 60,
+                    color:"rgb( "+Math.random() * 255+","+Math.random() * 255+" ,"+Math.random() * 255+" )"
+                }
+                array.push(point);
+            }
+        }
+        function suan() {
+            for (var i = 0; i < array.length; i++) {
+                var point = array[i];
+                var date = {
+                    x: point.vx * point.t + point.x + point.random,
+                    y: point.y + point.vy * point.t + 0.5 * 13 * point.t * point.t  + point.random,
+                    color: point.color
+                }
+                point.t+=0.06;
+                paintting.push(date);
+            }
+        }
+
+        function draw() {
+            paint.clearRect(0, 0, 1200, 600);            var len = paintting.length;
+            var curr_pixel = null;
+            for(var i=0;i<len;i++){
+                curr_pixel=paintting[i];
+                paint.fillStyle=paintting[i].color;
+                paint.fillRect(paintting[i].x,paintting[i].y,3,3);
+            }            paintting = [];
+        }
+    </script>
+</body>
+</html>
