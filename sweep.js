@@ -205,11 +205,31 @@ setTimeout(function () {
     var turn = document.getElementsByClassName("turn")[0];
     turn.style.height = window.innerHeight + "px";
     turn.style.backgroundColor = "#000";
+
+
 }, 10900)
+
+setTimeout(function () {
+    var go = document.getElementsByClassName("line-go")[0];
+    var show = document.getElementsByClassName("line-show")[0];
+    go.style.opacity = "1";
+    show.style.opacity = "1";
+}, 11500)
 
 setTimeout(function () {
     var logo = document.getElementsByClassName("logo")[0];
     var loading = document.getElementsByClassName("loading")[0];
     logo.style.opacity = "0";
     loading.style.opacity = "0";
-}, 15900)
+
+    var turn = document.getElementsByClassName("turn")[0];
+    var go = document.getElementsByClassName("line-go")[0];
+    var show = document.getElementsByClassName("line-show")[0];
+    go.style.opacity = "0";
+    show.style.opacity = "0";
+    turn.style.height = window.innerHeight + "px";
+    turn.style.backgroundColor = "#007acc";
+}, 19500)
+
+
+
