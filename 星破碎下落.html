@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>粒子效果</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <canvas width="600" height="800" style="background-color:#000;"></canvas>
+    <script>
+        var canvas = document.getElementsByTagName("canvas")[0];
+        var paint = canvas.getContext("2d");
+
+        var image = new Image();
+        image.src = './star.png';
+
+        var pixels = [];
+        var imageData;
+        image.onload = function () {
+            paint.drawImage(image, 50, 100, 200, 200);
+            imageData = paint.getImageData(50, 100, 200, 200);
+            paint.clearRect(0, 0, 600, 400);
+            num = 10;
+            (function flash() {
+                getPixels(num);
+                drawPic();
+                num += 5;
+                setTimeout(flash, 30);
+            })();
+
+        };
+
+        function getPixels(num) {
+            var pos = 0;
+            var data = imageData.data;    //RGBA的一维数组数据
+            //源图像的高度和宽度为200px
+            for (var i = 1; i <= 200; i++) {
+                for (var j = 1; j <= 200; j++) {
+                    pos = [(i - 1) * 200 + (j - 1)] * 4; //取得像素位置
+                    if (data[pos] > 0) {
+                        var pixel = {
+                        x: 200 + j + Math.random() * 2*num-num, //重新设置每个像素的位置信息
+                        y: -10 + i + Math.random() * num+0.5*10*(num/8)*(num/8), //重新设置每个像素的位置信息
+                        fillStyle: 'rgba(' + data[pos] + ',' + (data[pos + 1]) + ',' + (data[pos + 2]) + ',' + (data[pos + 3]) + ')'
+                    }
+                    pixels.push(pixel);
+                    }
+                }
+            }
+        }
+        function drawPic(){
+            var canvas=document.getElementsByTagName("canvas")[0];
+            var ctx=canvas.getContext("2d");
+            ctx.clearRect(0,0,600,800);
+            var len = pixels.length;
+            var curr_pixel = null;
+            for(var i=0;i<len;i++){
+                curr_pixel=pixels[i];
+                ctx.fillStyle=curr_pixel.fillStyle;
+                ctx.fillRect(curr_pixel.x,curr_pixel.y,1,1);
+            }
+            console.log(pixels);
+            pixels = [];
+        }
+       
+    </script>
+</body>
+</html>
+
+
