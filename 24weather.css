@@ -3,21 +3,31 @@
     padding:0;
     list-style:none;
 }
-::-webkit-scrollbar {
-            width: 0px;
-        }
+html{
+    overflow:hidden;
+}
 @font-face {
     font-family: lishu;
-    src: url(./ls.ttf);
+    src: url(./ls.TTF);
 }
 @font-face {
     font-family: xingkai;
-    src: url(./xk.ttf);
+    src: url(./xk.TTF);
 }
-@font-face {
-    font-family: kaishu;
-    src: url(./ks.ttf);
+
+.font{
+    position:absolute;
+    display:none;
+    opacity:0;
+    font-family:lishu;
 }
+.font1{
+    position:absolute;
+    display:none;
+    opacity:0;
+    font-family:xingkai;
+}
+
 body{
     background-image:url(./img/timg.jpg);
     background-repeat:no-repeat;
@@ -46,15 +56,21 @@ body{
 }
 .left{
     box-sizing:border-box;
-    margin-top:40px;
-    margin-left:170px;
     width:400px;
     height:695px;
     background-image:url(./img/jt.png);
     background-size:40px;
     background-repeat:no-repeat;
     background-position:40px -20px;
-    overflow:scroll;
+    overflow-y:scroll;
+    overflow-x:hidden;
+}
+.border{
+    margin-top:40px;
+    margin-left:170px;
+    width:380px;
+    height:695px;
+    overflow:hidden;
 }
 .left li {
     position:relative;
@@ -163,7 +179,9 @@ body{
     transform:rotate(360deg);
 }
 
-
+.close{
+    display:none;
+}
 .right{
     border:1px solid rgba(0,0,0,0);
     position:absolute;
@@ -176,13 +194,19 @@ body{
     box-shadow:10px 10px 15px rgba(0,0,0,0.3);
     transform:scale(0);
     transition:all  1.2s;
+    
 }
 .right>div{
     display:inline-block;
     vertical-align:top;
 }
+.wrap{
+    margin: 30px 20px;
+    width: 545px;
+    height: 500px;
+    overflow:hidden;
+}
 .right .main{
-    margin:30px 20px;
     width:565px;
     height:500px;
     overflow-Y:scroll;
@@ -227,4 +251,117 @@ body{
 }
 .start{
     transform:scale(1);
+}
+
+
+@media  (max-device-width:568px){
+    html{
+        background-image:url(./img/back-h.jpg);
+        background-repeat:no-repeat;
+        background-size:100%;
+    }
+    body{
+        background-image:none !important;
+        width:100%;
+        height:100%;
+    }
+    .left .top .tittle::after{
+        left:127px;
+        top:-11px;
+        border-left: 1px solid #a5a5a5;
+        border-top: 1px solid #a5a5a5;
+        border-bottom:0;
+    }
+    .left .top .show,
+    .left .top .pic{
+        left:107px;
+        top:97px;
+    }
+    .border{
+        width: 90%;
+        overflow:hidden;
+        height:280px;
+        margin-left:5%;
+        margin-right:4%;
+        margin-top:28%;
+    }
+    .left{
+        width:100%;
+        padding-top:25px;
+        height:290px;
+        background-image:url(./img/jt2.png); 
+        background-size:880px;
+        background-position-y:-6px;
+        background-position-x:-10px;
+        overflow-x:scroll;
+        overflow-y:hidden;
+    }
+    .left ul{
+        width:12000px;
+    }
+    .left li{
+        float:left;
+    }
+    .left .top{
+        margin-left:0;
+        width:250px;
+        height:150px;
+    }
+    .left .bottom{
+        left:127px;
+        top:-20px;
+    }
+    .page1>.name{
+        background-image: url(./img/name2.png);
+        background-size:400px;
+        width:400px;
+        height:100px;
+        top:5%;
+        left:15%;
+    }
+    .page1>.logo{
+        top:5%;
+        left:70%;
+    }
+    .right{
+        left:10%;
+        width:80%;
+        height:55%;
+        top:38%;
+    }
+    .right .main{
+        width:102%;
+        height:100%;
+    }
+    .wrap{
+        height:90%;
+        overflow:hidden;
+        margin-left:25%;
+        width:auto;
+    }
+
+    .right .line{
+        height:90%;
+        position:absolute;
+        left:23%;
+    }
+    .right .less{
+        position:absolute;
+        top:20%;
+    }
+    .right .main>div{
+        font-size:25px;
+        line-height:45px;
+    }
+    .right .main h4{
+        font-size:30px;
+        line-height:35px;
+    }
+    .left .top .tittle .big{
+        font-size:30px;
+    }
+    .left .top .tittle .small,
+    .left .top .tittle .season{
+        font-size:20px;
+    }
 }

@@ -91,14 +91,24 @@ function action() {
     var ul = document.getElementsByTagName("ul")[0];
     for (var i = 0; i < 24; i++) {
         (function (i) {
+            var scroll = window.screen.width;
             ul.children[i].firstElementChild.addEventListener("mouseenter", function () {
                 ul.children[i].lastElementChild.style.border = "3px solid #fff";
-                ul.children[i].firstElementChild.style.marginLeft = "115px";
+                if (scroll <= 568) {
+                    ul.children[i].firstElementChild.style.marginTop = "50px";
+                } else {
+                    ul.children[i].firstElementChild.style.marginLeft = "115px";
+                }
+                
                 ul.children[i].firstElementChild.lastElementChild.classList.add("active");
             })
             ul.children[i].firstElementChild.addEventListener("mouseleave", function () {
                 ul.children[i].lastElementChild.style.border = "6px solid #fff";
-                ul.children[i].firstElementChild.style.marginLeft = "100px";
+                if (scroll <= 568) {
+                    ul.children[i].firstElementChild.style.marginTop = "0px";
+                } else {
+                    ul.children[i].firstElementChild.style.marginLeft = "100px";
+                }
                 ul.children[i].firstElementChild.lastElementChild.classList.remove("active");
             })
             ul.children[i].firstElementChild.addEventListener("click", function () {
@@ -127,6 +137,7 @@ function action() {
 function getMessage(id) {
     var right = document.getElementsByClassName("right")[0];
     right.classList.remove("start");
+    right.classList.remove("close");
     var now = new Date();
     var script = document.createElement("script");
     script.src = "http://api.jisuapi.com/jieqi/detail?appkey=fd723f4e8718afa9&jieqiid="+id+"&year="+now.getFullYear()+"&callback=local";
@@ -140,10 +151,14 @@ function local(x) {
         right.children[0].children[0].src = x.result.pic;
         right.children[0].children[1].innerHTML = x.result.name;
         right.children[0].children[2].innerHTML = x.result.date;
-        right.children[2].children[0].children[1].innerHTML = x.result.jianjie;
-        right.children[2].children[1].children[1].innerHTML = x.result.youlai;
-        right.children[2].children[2].children[1].innerHTML = x.result.xisu;
-        right.children[2].children[3].children[1].innerHTML = x.result.yangsheng;
+        right.children[2].children[0].children[0].children[1].innerHTML = x.result.jianjie;
+        right.children[2].children[0].children[1].children[1].innerHTML = x.result.youlai;
+        right.children[2].children[0].children[2].children[1].innerHTML = x.result.xisu;
+        right.children[2].children[0].children[3].children[1].innerHTML = x.result.yangsheng;
+        try {
+            right.children[2].children[0].scrollTo(0, 0);
+        } catch(e){
+        }
         right.classList.add("start");
     }, 800)
 }
