@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>不可逾越的红线</title>
+    <link type="text/css" rel="stylesheet" href="./letterGame.css"/>
+</head>
+<body>
+    <div class="top">
+        <div class="count">
+            <div class="name">得分 :</div>
+            <div class="thing">0</div>
+        </div>
+        <div class="live">
+            <div class="name">生命 :</div>
+            <div class="box"><div class="main"></div></div>
+        </div>
+        <div class="time">
+            <div class="name">时间 :</div>
+            <div class="thing" id="timeShow">00:00</div>
+        </div>
+    </div>
+    <div class="line"></div>
+    <div class="express">
+        <h3>游戏说明</h3>
+        <ul>
+            <li class="introduce">
+                <h4>基本介绍</h4>
+                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这是一个练习打字的游戏，屏幕上方会出现，多个随机出现的字母，按压对应的字符，即可消除字符。通过玩本游戏，可以提高反应速度和打字能力。游戏通过添加，生命值和积分等属性规则，提高游戏可玩度。</div>
+                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当游戏开始后，会从屏幕上方出现一个由文本框包裹着的字母，字母在屏幕上随机移动，这时在键盘上按压对应的字母，即可消除字母，并获取对应的积分。</div>
+            </li>
+            <li class="count">
+                <h4>积分规则</h4>
+                <div>1.屏幕文字个数 -> 基准分</div>
+                <div>2.积分倍率 -> 连打提高积分倍率，打错字母积分倍率归1.0</div>
+                <div>3.积分 = 基准分*倍率</div>
+                <div>4.如果屏幕上出现多个相同的字符，按压一次可消除多个,获取多个积分</div>
+            </li>
+            <li class="livesub">
+                <h4>生命</h4>
+                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;文本框会随着时间逐渐向下移动，当文本框触碰到红线后，会重置到屏幕的顶部，并将文本框标成红色，开始持续减血。此时，应该先处理红色文本框，当红色文本框字符消除后，生命值停止减少。</div>
+                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当连续多次击打键盘，不断提高积分倍率后，生命值会缓慢恢复。当生命值减少至零后，游戏结束。</div>
+            </li>
+            <li class="redup">
+                <h4>难度升级</h4>
+                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;随着游戏的进行，红线会不断向前靠近，同时字母出现速度也会不断增加。</div>
+                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;随着游戏进行，会偶尔出现绿色文本框，绿色持续时间只有3秒，当文本框为绿色时，击中字母，红色会向后退回5%。按压空格键即可暂停游戏。</div>
+            </li>
+        </ul>
+        <div class="pre button grey">上一条</div>
+        <div class="go button">开始游戏</div>
+        <div class="next button">下一条</div>
+    </div>
+    <div class="stage" style="display:none">3</div>
+    <div class="target">
+        <ul></ul>
+    </div>
+    <script src="letterGame.js"></script>
+</body>
+</html>
