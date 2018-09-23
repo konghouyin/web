@@ -54,7 +54,7 @@ body{
     background: -webkit-linear-gradient(#e1d6cd, rgb(216, 170, 1),rgba(251, 212, 80, 0.93));
     vertical-align:top;
     border-radius:2px;
-    width:120px;
+    width:180px;
     height:24px;
 }
 /*顶部数据*/
@@ -87,7 +87,7 @@ body{
     font-size:26px;
 }
 .express ul{
-    /*position:absolute;*/
+    overflow:hidden;
     width:400%;
     list-style:none;
 }
@@ -165,3 +165,6 @@ body{
     border:3px solid #fff;
 }
 
+.target .red{
+    border:3px solid #f40;
+}
