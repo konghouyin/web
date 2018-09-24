@@ -57,6 +57,9 @@ body{
     width:180px;
     height:24px;
 }
+.greening{
+    background:-webkit-linear-gradient(#32e140,#32e140) !important;
+}
 /*顶部数据*/
 .line {
     position: absolute;
@@ -65,6 +68,7 @@ body{
     top: 80%;
     background: linear-gradient(to right, #f40 30px, transparent 30px);
     background-size: 53px 100%;
+    transition:all 0.5s;
 }
 /*红线条*/
 .express{
@@ -165,6 +169,84 @@ body{
     border:3px solid #fff;
 }
 
+.target .green{
+    border:3px solid #32e140;
+}
+
 .target .red{
     border:3px solid #f40;
+}
+
+.target .continue{
+    width:30%;
+    position:absolute;
+    left:40%;
+    bottom:5%;
+}
+.target .name{
+    font-size:20px;
+    line-height:40px;
+    color:#fff;
+    width:40%;
+    display:inline-block;
+}
+.target .thing{
+    width:20%;
+    font-size:20px;
+    line-height:40px;
+    display:inline-block;
+    color:#fff;
+}
+.target .box{
+    width:60%;
+    border:2px solid #fff;
+    height:10px;
+    overflow:hidden;
+    border-radius:2px;
+}
+.target .main{
+    width:0%;
+    height:100%;
+    background-color:#bbb;
+}
+
+.end{
+    background-color:rgba(28,59,79,1);
+    width:50%;
+    margin-left:25%;
+    border-radius:25px;
+    color:#fff;
+    position:absolute;
+    top:20%;
+    box-sizing:border-box;
+    padding:25px;
+}
+.end h3{
+    font-size:40px;
+    text-align:center;
+    font-family:-webkit-pictograph;
+    margin-bottom:20px;
+}
+.end .count,
+.end .time{
+    font-size:25px;
+    padding:10px 0;
+    margin-left:20%;
+}
+.end a{
+    display:inline-block;
+    margin-top:35px;
+    text-decoration:none;
+    color:aliceblue;
+    background-color: #52a7db;
+    border:3px solid #35649d;
+    height:30px;
+    text-align:center;
+    line-height:30px;
+    width:20%;
+    margin-left:40%;
+}
+.end a:hover{
+    background-color:#35649d;
+    border:3px solid #ccc;
 }
