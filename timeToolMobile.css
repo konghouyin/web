@@ -1,0 +1,131 @@
+*{
+    margin:0;
+    padding:0;
+    list-style:none;
+    -webkit-user-select:none;
+   -moz-user-select:none;
+   -ms-user-select:none;
+   user-select:none;
+   
+}
+
+@font-face{
+    font-family:num;
+    src:url(./num.otf);
+
+}
+html{
+    font-size:50px;
+    height:100%;
+    background-image:url(./img/back.png);
+    background-size:100%;
+
+  /*background: repeating-linear-gradient(-11deg,#ff9b00  29%,#ffa700bf  79%);*/
+
+
+}
+.header{
+    margin:0.7rem;
+    font-size:1rem;
+    color:#fff;
+}
+
+.pic{
+    position:relative;
+    background-image:url("./img/pic1.png");
+    z-index:3;
+    height:10rem;
+    width:10rem;
+    margin:0 auto;
+    background-size:100%;
+    background-repeat:no-repeat;
+}
+.line{
+    transition :all 1s;
+    height:10rem;
+    width:10rem;
+    position:absolute;
+    top:0;left:0;
+    background-image:url("./img/pic2.png");
+    background-size:100%;
+    background-repeat:no-repeat;
+    animation:myfirst 4s linear 0s infinite normal none paused;
+}
+@-webkit-keyframes myfirst{
+     0%   {transform:rotate(0deg)}
+    25%  {transform:rotate(90deg)}
+    50%  {transform:rotate(180deg)}
+    75%  {transform:rotate(270deg)}
+    100% {transform:rotate(360deg)}
+}
+
+
+.show{
+    text-align:center;
+    margin-top:-0.5rem;
+}
+.show>div{
+    letter-spacing:0.12rem;
+    font-size:2.7rem;
+    color:#fff;
+    text-shadow:10px 2px 2px #a26907;
+    display:inline-block;
+}
+
+.btn{
+    text-align:center;
+    margin:1rem 0;
+}
+.btn>div{
+    background-color:rgba(255, 255, 255, 0.3);
+    width:7rem;
+    height:2.2rem;
+    font-size:1.2rem;
+    line-height:2.2rem;
+    color:#fff;
+    text-align:center;
+    display:inline-block;
+    margin:0 0.5rem;
+    border-radius:0.2rem;
+}
+
+.list{
+    width:100%;
+}
+
+.button{
+    position:absolute;
+    top:22.5rem;
+    left:2rem;
+    width:2.2rem;
+    height:2.2rem;
+    border-radius:50%;
+    background-color:#fff;
+    text-align:center;
+    box-shadow:0 0 0px 32px rgba(255, 255, 255, 0.22);
+}
+.button>span{
+    font-size:2rem;
+    color:#d67542;
+    line-height:1.9rem;
+}
+.out{
+    position: absolute;
+    left: 8rem;
+    top: 23rem;
+    height: 5rem;
+    overflow: scroll;
+}
+.out>div{
+    margin:0.2rem 0;
+    width:10rem;
+    padding-bottom:0.3rem;
+    border-bottom:0.1rem solid #fff;
+    text-align:center;
+}
+
+.out span{
+    font-size:1.1rem;
+    color:#fff;
+    margin:0.6rem;
+}
