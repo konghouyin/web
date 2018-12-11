@@ -142,6 +142,7 @@ go = setInterval(turnNum, autoTime);
 
 var startTicket = 1;
 start.onclick = function () {
+	if(menuTicket == 1)return;
     if (startTicket == 1) {
         clearInterval(go);
         go = -1;
@@ -156,6 +157,7 @@ start.onclick = function () {
 //开始暂停
 
 before.onclick = function () {
+	if(menuTicket == 1)return;
     if (picNumber > 0) {
         picNumber--;
     }else if (picNumber == 0 && (Math.abs(parseInt(pic.style.left) + 0) < 30)) {
@@ -170,6 +172,7 @@ before.onclick = function () {
     move(picNumber);
 };
 next.onclick = function () {
+	if(menuTicket == 1)return;
     if (picNumber <picture - 1) {
         picNumber++;
     } else if (picNumber >=picture - 1 && (Math.abs(parseInt(pic.style.left) + (picture-1)*589) < 30)) {
@@ -185,6 +188,7 @@ next.onclick = function () {
 //上一页下一页
 
 first.onclick = function () {
+	if(menuTicket == 1)return;
     clearInterval(go);
     picNumber = parseInt(input.children[0].children[0].value);
     move(picNumber);
@@ -198,6 +202,7 @@ var musicTicket = 1;
 
 
 music.onclick = function () {
+	if(menuTicket == 1)return;
     if (musicTicket == 1) {
         musicTicket = 0;
         song.pause();
@@ -243,6 +248,7 @@ input.children[0].children[3].addEventListener("click", function () {
 var menuTicket = 1;
 var ctrl= document.getElementsByClassName("ctrl")[0];
 var menu = document.getElementsByClassName("button")[0];
+
 menu.onclick = function () {
     if (menuTicket == 1) {
         first.style.opacity = "1";
