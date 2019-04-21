@@ -1,0 +1,50 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: #000;
+	overflow: hidden;
+}
+
+#perspective {
+	perspective: 800px;
+}
+
+#wrap {
+	width: 120px;
+	/*133:200  4:6  */
+	height: 180px;
+	margin: 0 auto;
+	position: relative;
+
+	/*搭建3D效果必须的两个属性：一个变换风格变3d，一个场景景深800px*/
+	transform-style: preserve-3d;
+	transform: rotateX(-10deg) rotateY(0deg);
+
+}
+
+#wrap img {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	border-radius: 1px;
+	transform: rotateY(0deg) translateZ(0px);
+	/*倒影：朝向 偏移 遮盖*/
+	/*线性渐变(从哪里开始,开始时候的颜色,结束时候的颜色)*/
+	-webkit-box-reflect: below 5px -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.5) 100%);
+}
+
+#wrap p {
+	width: 1200px;
+	height: 1200px;
+	background: -webkit-radial-gradient(center center, 572px 600px, rgba(255, 255, 255, 0.3), rgb(31, 31, 31));;
+	border-radius: 100%;
+	position: absolute;
+	left: 50%;
+	top: 102%;
+	margin-left: -600px;
+	margin-top: -600px;
+	transform: rotateX(90deg);
+}
