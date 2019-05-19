@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>vue</title>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		<link rel="stylesheet" type="text/css" href="todoList.css" />
+	</head>
+	<body>
+		<div class="top-wrap">
+			<div class="top"> 3G实验室学习任务计划列表 </div>
+		</div>
+		<div class="main">
+			<div class="add">
+				<h3>添加任务：</h3>
+				<input type="text" class="add-task" v-model="inputValue" @keyup.enter="addtodo">
+				<div class="left">{{num}}个任务未完成</div>
+				<div class="right">
+					<span @click="changetype('all')">所有任务</span>
+					<span @click="changetype('false')">未完成任务</span>
+					<span @click="changetype('true')">完成的任务</span>
+				</div>
+			</div>
+			<div class="list">
+				<h3>任务列表：</h3>
+				<span class="no-task">还没有添加任何任务</span>
+				<ul class="todo-list">
+					<li class="each-list" v-for="each in list" :class="{editing:editingtodo === each}">
+						<div class="view" v-bind:class="{finish:each.check}">
+							<input type="checkbox" name="finish" v-bind:id="'list'+each.id" v-model="each.check"/>
+							<label v-bind:for="'list'+each.id" @dblclick="edit(each)">{{each.title+"----"+each.time}}</label>
+							<div class="delete" @click="del(each)"></div>
+						</div>
+						<input type="text" class="task-edit" v-focus="editingtodo === each" v-model="each.title" @keyup.enter="finishedit" @blur="finishedit">
+					</li>
+				</ul>
+			</div>
+		</div>
+		<script src="todoList.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

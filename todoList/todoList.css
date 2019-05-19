@@ -1,0 +1,144 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+html {
+	background-color: #eee;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	user-select: none;
+}
+
+ul {
+	list-style: none;
+}
+input{
+	font-size: 18px;
+}
+
+input[type="checkbox"] {
+	display: none;
+}
+
+input[type="checkbox"]+label::before {
+	content: "\a0";
+	/*不换行空格*/
+	display: inline-block;
+	vertical-align: middle;
+	width: 22px;
+	height: 22px;
+	margin: 0 10px;
+	border-radius: 50%;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+}
+
+input[type="checkbox"]:checked+label {
+	position: relative;
+}
+
+input[type="checkbox"]:checked+label::after {
+	content: "";
+	display: block;
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	background-image: url(finish.png);
+	background-size: 75%;
+	top: 13px;
+	left: 13px;
+	background-repeat: no-repeat;
+}
+
+
+
+.top-wrap {
+	height: 40px;
+	background-color: cornflowerblue;
+}
+
+.top,
+.main,
+.list {
+	width: 800px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.top {
+	font-size: 20px;
+	line-height: 40px;
+	color: #fff;
+}
+
+h3 {
+	margin: 15px;
+}
+
+
+.add-task {
+	width: 794px;
+	height: 30px;
+}
+
+.left {
+	float: left;
+	margin: 10px;
+	color: #f40;
+}
+
+.right {
+	float: right;
+	margin: 10px 50px 10px 10px;
+}
+
+.right>span {
+	margin: 0 10px;
+	cursor: pointer;
+}
+
+.view>label {
+	line-height: 35px;
+	width: 760px;
+	display: inline-block;
+}
+
+.finish>label {
+	text-decoration: line-through;
+	color: #aaa;
+}
+
+.each-list {
+	height: 35px;
+	border: 1px solid #ccc;
+	background-color: #FFFFFF;
+	border-radius: 2px;
+}
+
+.each-list:hover {
+	background-color: #ddd;
+}
+
+.each-list:hover .delete {
+	display: inline-block;
+	width: 28px;
+	height: 30px;
+	background-image: url(del.png);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	vertical-align: middle;
+	cursor: pointer;
+}
+
+.editing .task-edit{
+	display: block;
+	height: 31px;
+    width: 795px;
+}
+.editing .view{
+	display: none;
+}
+.task-edit{
+	display: none;
+}
